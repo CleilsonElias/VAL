@@ -1,0 +1,4 @@
+{"id":"mat-1","text":"Fictitious example: graph vertices represent states.","vector":[1,0,0,0],"routing":[0.9,0.04,0.03,0.03],"entropy":0.65}
+{"id":"bio-1","text":"Fictitious example: a metabolic pathway can be represented by a graph.","vector":[0.9,0.2,0,0],"routing":[0.48,0.48,0.02,0.02],"entropy":0.6}
+{"id":"sha-1","text":"Fictitious example: an unverified weak association.","vector":[0.95,0.1,0.1,0],"routing":[0.9,0.04,0.03,0.03],"entropy":0.05}
+{"id":"lan-1","text":"Fictitious example: a peripheral language note.","vector":[0,0,1,0],"routing":[0.03,0.03,0.91,0.03],"entropy":0.45}

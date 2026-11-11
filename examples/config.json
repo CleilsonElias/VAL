@@ -1,0 +1,7 @@
+{
+  "domains": ["mathematics", "biology", "language", "spatial"],
+  "lambdas": [0.05, 0.08, 0.9, 0.9],
+  "active_capacity": 64,
+  "shadow_capacity": 64,
+  "shadow_policy": "raw_interval"
+}
