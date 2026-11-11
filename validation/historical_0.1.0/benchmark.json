@@ -1,0 +1,9098 @@
+{
+  "schema_version": 1,
+  "python": "3.12.14",
+  "settings": {
+    "seeds": 8,
+    "observations": 320,
+    "queries": 48,
+    "dimension": 12,
+    "active_capacity": 64,
+    "shadow_capacity": 64
+  },
+  "scope": "synthetic episodic retrieval only; exact vectors, externally supplied scores and routing",
+  "fairness": "identical stream and queries per seed; same total slot ceiling except no-shadow ablation",
+  "limitations": [
+    "equal slot ceilings, not equal realized storage bytes or admissions",
+    "quota baseline uses active+shadow budget as active FIFO slots; payload bytes reported per policy",
+    "mean lambda is matched for scalar vs A1, not across all policies",
+    "A3 receives external task context, not learned intrinsic motivation",
+    "normal intervals are descriptive seed variability, not population-valid confidence guarantees",
+    "no training, language task, creativity, consciousness or biological test"
+  ],
+  "summaries": [
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "policy": "scalar_mean",
+      "recall_mean": 0.4270833333333333,
+      "recall_sd": 0.1526875635521507,
+      "delta_vs_scalar_mean": 0.0,
+      "paired_normal_95_interval": [
+        0.0,
+        0.0
+      ],
+      "payload_bytes_mean": 57474.5,
+      "active_mean": 63.875,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.23359375
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "policy": "A1_fixed",
+      "recall_mean": 0.6796875,
+      "recall_sd": 0.08904357046118597,
+      "delta_vs_scalar_mean": 0.2526041666666667,
+      "paired_normal_95_interval": [
+        0.17412130572362033,
+        0.33108702760971304
+      ],
+      "payload_bytes_mean": 57518.875,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.257421875
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "policy": "A2_broad",
+      "recall_mean": 0.3359375,
+      "recall_sd": 0.09987436304105846,
+      "delta_vs_scalar_mean": -0.09114583333333333,
+      "paired_normal_95_interval": [
+        -0.13991285760435074,
+        -0.04237880906231592
+      ],
+      "payload_bytes_mean": 47134.75,
+      "active_mean": 64,
+      "shadows_mean": 40.875,
+      "admission_rate_mean": 0.72734375
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "policy": "A3_context",
+      "recall_mean": 0.6796875,
+      "recall_sd": 0.08904357046118597,
+      "delta_vs_scalar_mean": 0.2526041666666667,
+      "paired_normal_95_interval": [
+        0.17412130572362033,
+        0.33108702760971304
+      ],
+      "payload_bytes_mean": 57518.875,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.257421875
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "policy": "quota_fifo",
+      "recall_mean": 1.0,
+      "recall_sd": 0.0,
+      "delta_vs_scalar_mean": 0.5729166666666667,
+      "paired_normal_95_interval": [
+        0.4671095833079006,
+        0.6787237500254328
+      ],
+      "payload_bytes_mean": 51470.625,
+      "active_mean": 114.5,
+      "shadows_mean": 0,
+      "admission_rate_mean": 1.0
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "policy": "A1_no_amplification",
+      "recall_mean": 0.7109375,
+      "recall_sd": 0.10764288907057593,
+      "delta_vs_scalar_mean": 0.2838541666666667,
+      "paired_normal_95_interval": [
+        0.22511663474498989,
+        0.3425916985883435
+      ],
+      "payload_bytes_mean": 57534,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.257421875
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "policy": "A1_no_shadows",
+      "recall_mean": 0.6744791666666666,
+      "recall_sd": 0.08549103905051399,
+      "delta_vs_scalar_mean": 0.24739583333333334,
+      "paired_normal_95_interval": [
+        0.16484527801098692,
+        0.32994638865567977
+      ],
+      "payload_bytes_mean": 28752.125,
+      "active_mean": 64,
+      "shadows_mean": 0,
+      "admission_rate_mean": 0.257421875
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "policy": "scalar_mean",
+      "recall_mean": 0.34375,
+      "recall_sd": 0.12350294000741921,
+      "delta_vs_scalar_mean": 0.0,
+      "paired_normal_95_interval": [
+        0.0,
+        0.0
+      ],
+      "payload_bytes_mean": 57535.75,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.240625
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "policy": "A1_fixed",
+      "recall_mean": 0.625,
+      "recall_sd": 0.0862581949177943,
+      "delta_vs_scalar_mean": 0.28125,
+      "paired_normal_95_interval": [
+        0.17321515479819588,
+        0.3892848452018041
+      ],
+      "payload_bytes_mean": 57529.5,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.240625
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "policy": "A2_broad",
+      "recall_mean": 0.3229166666666667,
+      "recall_sd": 0.0989779115971184,
+      "delta_vs_scalar_mean": -0.02083333333333333,
+      "paired_normal_95_interval": [
+        -0.12664041669209947,
+        0.08497375002543281
+      ],
+      "payload_bytes_mean": 46932.625,
+      "active_mean": 64,
+      "shadows_mean": 40.375,
+      "admission_rate_mean": 0.741015625
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "policy": "A3_context",
+      "recall_mean": 0.625,
+      "recall_sd": 0.0862581949177943,
+      "delta_vs_scalar_mean": 0.28125,
+      "paired_normal_95_interval": [
+        0.17321515479819588,
+        0.3892848452018041
+      ],
+      "payload_bytes_mean": 57529.5,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.240625
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "policy": "quota_fifo",
+      "recall_mean": 0.7630208333333333,
+      "recall_sd": 0.06391018235563217,
+      "delta_vs_scalar_mean": 0.4192708333333333,
+      "paired_normal_95_interval": [
+        0.3003629978022194,
+        0.5381786688644472
+      ],
+      "payload_bytes_mean": 48657.25,
+      "active_mean": 108.25,
+      "shadows_mean": 0,
+      "admission_rate_mean": 1.0
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "policy": "A1_no_amplification",
+      "recall_mean": 0.6302083333333334,
+      "recall_sd": 0.06274752572115481,
+      "delta_vs_scalar_mean": 0.28645833333333337,
+      "paired_normal_95_interval": [
+        0.197547827064389,
+        0.37536883960227774
+      ],
+      "payload_bytes_mean": 57542.25,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.240625
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "policy": "A1_no_shadows",
+      "recall_mean": 0.5625,
+      "recall_sd": 0.08333333333333331,
+      "delta_vs_scalar_mean": 0.21875,
+      "paired_normal_95_interval": [
+        0.11126776632598508,
+        0.32623223367401494
+      ],
+      "payload_bytes_mean": 28737.875,
+      "active_mean": 64,
+      "shadows_mean": 0,
+      "admission_rate_mean": 0.240625
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "policy": "scalar_mean",
+      "recall_mean": 0.6119791666666666,
+      "recall_sd": 0.10442675862376781,
+      "delta_vs_scalar_mean": 0.0,
+      "paired_normal_95_interval": [
+        0.0,
+        0.0
+      ],
+      "payload_bytes_mean": 57474.5,
+      "active_mean": 63.875,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.23359375
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "policy": "A1_fixed",
+      "recall_mean": 0.578125,
+      "recall_sd": 0.09233388129457482,
+      "delta_vs_scalar_mean": -0.03385416666666667,
+      "paired_normal_95_interval": [
+        -0.10904323679897451,
+        0.04133490346564117
+      ],
+      "payload_bytes_mean": 57518.875,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.257421875
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "policy": "A2_broad",
+      "recall_mean": 0.5677083333333334,
+      "recall_sd": 0.10431537004953502,
+      "delta_vs_scalar_mean": -0.044270833333333356,
+      "paired_normal_95_interval": [
+        -0.14442181527573755,
+        0.055880148609070854
+      ],
+      "payload_bytes_mean": 47134.75,
+      "active_mean": 64,
+      "shadows_mean": 40.875,
+      "admission_rate_mean": 0.72734375
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "policy": "A3_context",
+      "recall_mean": 0.9244791666666666,
+      "recall_sd": 0.08178433881493952,
+      "delta_vs_scalar_mean": 0.3125,
+      "paired_normal_95_interval": [
+        0.24177459202427087,
+        0.3832254079757291
+      ],
+      "payload_bytes_mean": 57498.25,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.23984375
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "policy": "quota_fifo",
+      "recall_mean": 0.3541666666666667,
+      "recall_sd": 0.06299407883487121,
+      "delta_vs_scalar_mean": -0.2578125,
+      "paired_normal_95_interval": [
+        -0.35570838653612796,
+        -0.15991661346387204
+      ],
+      "payload_bytes_mean": 51470.625,
+      "active_mean": 114.5,
+      "shadows_mean": 0,
+      "admission_rate_mean": 1.0
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "policy": "A1_no_amplification",
+      "recall_mean": 0.5651041666666666,
+      "recall_sd": 0.11160218242944837,
+      "delta_vs_scalar_mean": -0.046875000000000014,
+      "paired_normal_95_interval": [
+        -0.13578550626894437,
+        0.04203550626894435
+      ],
+      "payload_bytes_mean": 57534,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.257421875
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "policy": "A1_no_shadows",
+      "recall_mean": 0.049479166666666664,
+      "recall_sd": 0.05095504067935694,
+      "delta_vs_scalar_mean": -0.5625,
+      "paired_normal_95_interval": [
+        -0.665165009456322,
+        -0.4598349905436781
+      ],
+      "payload_bytes_mean": 28752.125,
+      "active_mean": 64,
+      "shadows_mean": 0,
+      "admission_rate_mean": 0.257421875
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "policy": "scalar_mean",
+      "recall_mean": 0.6302083333333334,
+      "recall_sd": 0.09233388129457483,
+      "delta_vs_scalar_mean": 0.0,
+      "paired_normal_95_interval": [
+        0.0,
+        0.0
+      ],
+      "payload_bytes_mean": 57535.75,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.240625
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "policy": "A1_fixed",
+      "recall_mean": 0.5729166666666667,
+      "recall_sd": 0.06493281020616498,
+      "delta_vs_scalar_mean": -0.05729166666666666,
+      "paired_normal_95_interval": [
+        -0.1094869629905054,
+        -0.005096370342827922
+      ],
+      "payload_bytes_mean": 57529.5,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.240625
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "policy": "A2_broad",
+      "recall_mean": 0.5442708333333334,
+      "recall_sd": 0.06813623942525646,
+      "delta_vs_scalar_mean": -0.0859375,
+      "paired_normal_95_interval": [
+        -0.14339379755276807,
+        -0.028481202447231922
+      ],
+      "payload_bytes_mean": 46932.625,
+      "active_mean": 64,
+      "shadows_mean": 40.375,
+      "admission_rate_mean": 0.741015625
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "policy": "A3_context",
+      "recall_mean": 0.8932291666666666,
+      "recall_sd": 0.05391137182362141,
+      "delta_vs_scalar_mean": 0.2630208333333333,
+      "paired_normal_95_interval": [
+        0.1910694095915322,
+        0.33497225707513445
+      ],
+      "payload_bytes_mean": 57074.5,
+      "active_mean": 63,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.24140625000000002
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "policy": "quota_fifo",
+      "recall_mean": 0.375,
+      "recall_sd": 0.06299407883487121,
+      "delta_vs_scalar_mean": -0.25520833333333337,
+      "paired_normal_95_interval": [
+        -0.33493796544154714,
+        -0.1754787012251196
+      ],
+      "payload_bytes_mean": 48657.25,
+      "active_mean": 108.25,
+      "shadows_mean": 0,
+      "admission_rate_mean": 1.0
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "policy": "A1_no_amplification",
+      "recall_mean": 0.578125,
+      "recall_sd": 0.10431537004953503,
+      "delta_vs_scalar_mean": -0.05208333333333333,
+      "paired_normal_95_interval": [
+        -0.08295043196242023,
+        -0.02121623470424643
+      ],
+      "payload_bytes_mean": 57542.25,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.240625
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "policy": "A1_no_shadows",
+      "recall_mean": 0.08854166666666667,
+      "recall_sd": 0.05193431061492604,
+      "delta_vs_scalar_mean": -0.5416666666666667,
+      "paired_normal_95_interval": [
+        -0.5988957992051834,
+        -0.48443753412815005
+      ],
+      "payload_bytes_mean": 28737.875,
+      "active_mean": 64,
+      "shadows_mean": 0,
+      "admission_rate_mean": 0.240625
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "policy": "scalar_mean",
+      "recall_mean": 0.3932291666666667,
+      "recall_sd": 0.07254368894366729,
+      "delta_vs_scalar_mean": 0.0,
+      "paired_normal_95_interval": [
+        0.0,
+        0.0
+      ],
+      "payload_bytes_mean": 57474.5,
+      "active_mean": 63.875,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.23359375
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "policy": "A1_fixed",
+      "recall_mean": 0.3828125,
+      "recall_sd": 0.13313671328601728,
+      "delta_vs_scalar_mean": -0.010416666666666668,
+      "paired_normal_95_interval": [
+        -0.06101894208761763,
+        0.040185608754284285
+      ],
+      "payload_bytes_mean": 57518.875,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.257421875
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "policy": "A2_broad",
+      "recall_mean": 0.3229166666666667,
+      "recall_sd": 0.07952612628504398,
+      "delta_vs_scalar_mean": -0.0703125,
+      "paired_normal_95_interval": [
+        -0.11459999686392564,
+        -0.026025003136074372
+      ],
+      "payload_bytes_mean": 47134.75,
+      "active_mean": 64,
+      "shadows_mean": 40.875,
+      "admission_rate_mean": 0.72734375
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "policy": "A3_context",
+      "recall_mean": 0.3828125,
+      "recall_sd": 0.13313671328601728,
+      "delta_vs_scalar_mean": -0.010416666666666668,
+      "paired_normal_95_interval": [
+        -0.06101894208761763,
+        0.040185608754284285
+      ],
+      "payload_bytes_mean": 57518.875,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.257421875
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "policy": "quota_fifo",
+      "recall_mean": 0.3619791666666667,
+      "recall_sd": 0.12935733814724112,
+      "delta_vs_scalar_mean": -0.03125,
+      "paired_normal_95_interval": [
+        -0.09151993676600115,
+        0.029019936766001148
+      ],
+      "payload_bytes_mean": 51470.625,
+      "active_mean": 114.5,
+      "shadows_mean": 0,
+      "admission_rate_mean": 1.0
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "policy": "A1_no_amplification",
+      "recall_mean": 0.3854166666666667,
+      "recall_sd": 0.12938729237669142,
+      "delta_vs_scalar_mean": -0.0078124999999999965,
+      "paired_normal_95_interval": [
+        -0.05896342472961212,
+        0.04333842472961212
+      ],
+      "payload_bytes_mean": 57534,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.257421875
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "policy": "A1_no_shadows",
+      "recall_mean": 0.18229166666666666,
+      "recall_sd": 0.08821279961475555,
+      "delta_vs_scalar_mean": -0.2109375,
+      "paired_normal_95_interval": [
+        -0.24829617466756104,
+        -0.17357882533243896
+      ],
+      "payload_bytes_mean": 28752.125,
+      "active_mean": 64,
+      "shadows_mean": 0,
+      "admission_rate_mean": 0.257421875
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "policy": "scalar_mean",
+      "recall_mean": 0.4348958333333333,
+      "recall_sd": 0.06342324053906574,
+      "delta_vs_scalar_mean": 0.0,
+      "paired_normal_95_interval": [
+        0.0,
+        0.0
+      ],
+      "payload_bytes_mean": 57535.75,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.240625
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "policy": "A1_fixed",
+      "recall_mean": 0.4166666666666667,
+      "recall_sd": 0.0713044556589937,
+      "delta_vs_scalar_mean": -0.01822916666666665,
+      "paired_normal_95_interval": [
+        -0.0708151783852998,
+        0.03435684505196649
+      ],
+      "payload_bytes_mean": 57529.5,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.240625
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "policy": "A2_broad",
+      "recall_mean": 0.3463541666666667,
+      "recall_sd": 0.050955040679356946,
+      "delta_vs_scalar_mean": -0.08854166666666666,
+      "paired_normal_95_interval": [
+        -0.12991826113074073,
+        -0.0471650722025926
+      ],
+      "payload_bytes_mean": 46932.625,
+      "active_mean": 64,
+      "shadows_mean": 40.375,
+      "admission_rate_mean": 0.741015625
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "policy": "A3_context",
+      "recall_mean": 0.4166666666666667,
+      "recall_sd": 0.0713044556589937,
+      "delta_vs_scalar_mean": -0.01822916666666665,
+      "paired_normal_95_interval": [
+        -0.0708151783852998,
+        0.03435684505196649
+      ],
+      "payload_bytes_mean": 57529.5,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.240625
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "policy": "quota_fifo",
+      "recall_mean": 0.39583333333333337,
+      "recall_sd": 0.09960238411119947,
+      "delta_vs_scalar_mean": -0.039062499999999986,
+      "paired_normal_95_interval": [
+        -0.09703468936337778,
+        0.018909689363377814
+      ],
+      "payload_bytes_mean": 48657.25,
+      "active_mean": 108.25,
+      "shadows_mean": 0,
+      "admission_rate_mean": 1.0
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "policy": "A1_no_amplification",
+      "recall_mean": 0.421875,
+      "recall_sd": 0.07695049686814225,
+      "delta_vs_scalar_mean": -0.013020833333333322,
+      "paired_normal_95_interval": [
+        -0.05155644659669445,
+        0.025514779930027806
+      ],
+      "payload_bytes_mean": 57542.25,
+      "active_mean": 64,
+      "shadows_mean": 64,
+      "admission_rate_mean": 0.240625
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "policy": "A1_no_shadows",
+      "recall_mean": 0.23177083333333334,
+      "recall_sd": 0.06722008023282877,
+      "delta_vs_scalar_mean": -0.203125,
+      "paired_normal_95_interval": [
+        -0.24926460172370613,
+        -0.15698539827629387
+      ],
+      "payload_bytes_mean": 28737.875,
+      "active_mean": 64,
+      "shadows_mean": 0,
+      "admission_rate_mean": 0.240625
+    }
+  ],
+  "rows": [
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.6875,
+      "shadow_recall_at_1": 0.4375,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.225,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57521,
+      "active_by_domain": [
+        13,
+        17,
+        17,
+        17
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.7708333333333334,
+      "shadow_recall_at_1": 0.020833333333333332,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57474,
+      "active_by_domain": [
+        54,
+        5,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A2_broad",
+      "recall_at_1": 0.4583333333333333,
+      "shadow_recall_at_1": 0.16666666666666666,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.6875,
+      "active": 64,
+      "shadows": 48,
+      "payload_bytes": 50318,
+      "active_by_domain": [
+        18,
+        16,
+        15,
+        15
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A3_context",
+      "recall_at_1": 0.7708333333333334,
+      "shadow_recall_at_1": 0.020833333333333332,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57474,
+      "active_by_domain": [
+        54,
+        5,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "quota_fifo",
+      "recall_at_1": 1.0,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 114,
+      "shadows": 0,
+      "payload_bytes": 51241,
+      "active_by_domain": [
+        82,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.8541666666666666,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57529,
+      "active_by_domain": [
+        54,
+        5,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.75,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28742,
+      "active_by_domain": [
+        54,
+        5,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5,
+      "shadow_recall_at_1": 0.16666666666666666,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.2625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57580,
+      "active_by_domain": [
+        21,
+        15,
+        15,
+        13
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.7083333333333334,
+      "shadow_recall_at_1": 0.020833333333333332,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57561,
+      "active_by_domain": [
+        58,
+        2,
+        3,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A2_broad",
+      "recall_at_1": 0.3958333333333333,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.8125,
+      "admission_rate": 0.7125,
+      "active": 64,
+      "shadows": 41,
+      "payload_bytes": 47231,
+      "active_by_domain": [
+        20,
+        17,
+        14,
+        13
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A3_context",
+      "recall_at_1": 0.7083333333333334,
+      "shadow_recall_at_1": 0.020833333333333332,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57561,
+      "active_by_domain": [
+        58,
+        2,
+        3,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "quota_fifo",
+      "recall_at_1": 1.0,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 121,
+      "shadows": 0,
+      "payload_bytes": 54437,
+      "active_by_domain": [
+        89,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.75,
+      "shadow_recall_at_1": 0.0625,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57583,
+      "active_by_domain": [
+        58,
+        2,
+        3,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.6875,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28788,
+      "active_by_domain": [
+        58,
+        2,
+        3,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57572,
+      "active_by_domain": [
+        17,
+        16,
+        12,
+        19
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57553,
+      "active_by_domain": [
+        58,
+        3,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A2_broad",
+      "recall_at_1": 0.2916666666666667,
+      "shadow_recall_at_1": 0.08333333333333333,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.703125,
+      "active": 64,
+      "shadows": 48,
+      "payload_bytes": 50378,
+      "active_by_domain": [
+        24,
+        15,
+        15,
+        10
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A3_context",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57553,
+      "active_by_domain": [
+        58,
+        3,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "quota_fifo",
+      "recall_at_1": 1.0,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 118,
+      "shadows": 0,
+      "payload_bytes": 53052,
+      "active_by_domain": [
+        86,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57563,
+      "active_by_domain": [
+        58,
+        3,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28746,
+      "active_by_domain": [
+        58,
+        3,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.4583333333333333,
+      "shadow_recall_at_1": 0.2916666666666667,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57505,
+      "active_by_domain": [
+        11,
+        17,
+        20,
+        16
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.7291666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57511,
+      "active_by_domain": [
+        59,
+        2,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A2_broad",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.728125,
+      "active": 64,
+      "shadows": 40,
+      "payload_bytes": 46704,
+      "active_by_domain": [
+        11,
+        14,
+        21,
+        18
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A3_context",
+      "recall_at_1": 0.7291666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57511,
+      "active_by_domain": [
+        59,
+        2,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "quota_fifo",
+      "recall_at_1": 1.0,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 112,
+      "shadows": 0,
+      "payload_bytes": 50356,
+      "active_by_domain": [
+        80,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.7291666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.8541666666666666,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57526,
+      "active_by_domain": [
+        59,
+        2,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.7291666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28770,
+      "active_by_domain": [
+        59,
+        2,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.2625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57536,
+      "active_by_domain": [
+        14,
+        16,
+        20,
+        14
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.7916666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.8333333333333334,
+      "admission_rate": 0.25,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57552,
+      "active_by_domain": [
+        59,
+        1,
+        1,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A2_broad",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.041666666666666664,
+      "cross_resonance_rate": 0.8541666666666666,
+      "admission_rate": 0.75625,
+      "active": 64,
+      "shadows": 35,
+      "payload_bytes": 44473,
+      "active_by_domain": [
+        16,
+        12,
+        20,
+        16
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A3_context",
+      "recall_at_1": 0.7916666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.8333333333333334,
+      "admission_rate": 0.25,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57552,
+      "active_by_domain": [
+        59,
+        1,
+        1,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "quota_fifo",
+      "recall_at_1": 1.0,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 113,
+      "shadows": 0,
+      "payload_bytes": 50827,
+      "active_by_domain": [
+        81,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.7916666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.7916666666666666,
+      "admission_rate": 0.25,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57545,
+      "active_by_domain": [
+        59,
+        1,
+        1,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.7916666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.25,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28762,
+      "active_by_domain": [
+        59,
+        1,
+        1,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.22916666666666666,
+      "shadow_recall_at_1": 0.08333333333333333,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57543,
+      "active_by_domain": [
+        11,
+        18,
+        19,
+        16
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57517,
+      "active_by_domain": [
+        50,
+        2,
+        4,
+        8
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A2_broad",
+      "recall_at_1": 0.22916666666666666,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.740625,
+      "active": 64,
+      "shadows": 43,
+      "payload_bytes": 48092,
+      "active_by_domain": [
+        12,
+        20,
+        17,
+        15
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A3_context",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57517,
+      "active_by_domain": [
+        50,
+        2,
+        4,
+        8
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "quota_fifo",
+      "recall_at_1": 1.0,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 104,
+      "shadows": 0,
+      "payload_bytes": 46728,
+      "active_by_domain": [
+        72,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.5625,
+      "shadow_recall_at_1": 0.020833333333333332,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57518,
+      "active_by_domain": [
+        50,
+        2,
+        4,
+        8
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28733,
+      "active_by_domain": [
+        50,
+        2,
+        4,
+        8
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.3541666666666667,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.196875,
+      "active": 63,
+      "shadows": 64,
+      "payload_bytes": 57047,
+      "active_by_domain": [
+        19,
+        15,
+        18,
+        11
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.6875,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.265625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57524,
+      "active_by_domain": [
+        56,
+        1,
+        5,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A2_broad",
+      "recall_at_1": 0.4791666666666667,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.740625,
+      "active": 64,
+      "shadows": 38,
+      "payload_bytes": 45874,
+      "active_by_domain": [
+        22,
+        20,
+        13,
+        9
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A3_context",
+      "recall_at_1": 0.6875,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.265625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57524,
+      "active_by_domain": [
+        56,
+        1,
+        5,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "quota_fifo",
+      "recall_at_1": 1.0,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 122,
+      "shadows": 0,
+      "payload_bytes": 54826,
+      "active_by_domain": [
+        90,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.7916666666666666,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.265625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57529,
+      "active_by_domain": [
+        56,
+        1,
+        5,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.6875,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.265625,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28742,
+      "active_by_domain": [
+        56,
+        1,
+        5,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.25,
+      "shadow_recall_at_1": 0.041666666666666664,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.25625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57492,
+      "active_by_domain": [
+        16,
+        15,
+        17,
+        16
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.625,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57459,
+      "active_by_domain": [
+        59,
+        2,
+        2,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A2_broad",
+      "recall_at_1": 0.20833333333333334,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.8541666666666666,
+      "admission_rate": 0.75,
+      "active": 64,
+      "shadows": 34,
+      "payload_bytes": 44008,
+      "active_by_domain": [
+        15,
+        19,
+        19,
+        11
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A3_context",
+      "recall_at_1": 0.625,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57459,
+      "active_by_domain": [
+        59,
+        2,
+        2,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "quota_fifo",
+      "recall_at_1": 1.0,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 112,
+      "shadows": 0,
+      "payload_bytes": 50298,
+      "active_by_domain": [
+        80,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.625,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57479,
+      "active_by_domain": [
+        59,
+        2,
+        2,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.625,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28734,
+      "active_by_domain": [
+        59,
+        2,
+        2,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.228125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57510,
+      "active_by_domain": [
+        15,
+        19,
+        16,
+        14
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.6041666666666666,
+      "shadow_recall_at_1": 0.020833333333333332,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.215625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57516,
+      "active_by_domain": [
+        56,
+        6,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A2_broad",
+      "recall_at_1": 0.3333333333333333,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.75,
+      "admission_rate": 0.746875,
+      "active": 64,
+      "shadows": 31,
+      "payload_bytes": 42678,
+      "active_by_domain": [
+        19,
+        18,
+        16,
+        11
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A3_context",
+      "recall_at_1": 0.6041666666666666,
+      "shadow_recall_at_1": 0.020833333333333332,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.215625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57516,
+      "active_by_domain": [
+        56,
+        6,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.7291666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 101,
+      "shadows": 0,
+      "payload_bytes": 45399,
+      "active_by_domain": [
+        69,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.6041666666666666,
+      "shadow_recall_at_1": 0.020833333333333332,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.215625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57539,
+      "active_by_domain": [
+        56,
+        6,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.215625,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28738,
+      "active_by_domain": [
+        56,
+        6,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.2708333333333333,
+      "shadow_recall_at_1": 0.0625,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.228125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57553,
+      "active_by_domain": [
+        14,
+        20,
+        15,
+        15
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.7083333333333334,
+      "shadow_recall_at_1": 0.041666666666666664,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57541,
+      "active_by_domain": [
+        62,
+        0,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A2_broad",
+      "recall_at_1": 0.2708333333333333,
+      "shadow_recall_at_1": 0.14583333333333334,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.7,
+      "active": 64,
+      "shadows": 43,
+      "payload_bytes": 48143,
+      "active_by_domain": [
+        14,
+        19,
+        15,
+        16
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A3_context",
+      "recall_at_1": 0.7083333333333334,
+      "shadow_recall_at_1": 0.041666666666666664,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57541,
+      "active_by_domain": [
+        62,
+        0,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.7916666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 104,
+      "shadows": 0,
+      "payload_bytes": 46749,
+      "active_by_domain": [
+        72,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.7083333333333334,
+      "shadow_recall_at_1": 0.041666666666666664,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57558,
+      "active_by_domain": [
+        62,
+        0,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.6666666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28741,
+      "active_by_domain": [
+        62,
+        0,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.4166666666666667,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.240625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57545,
+      "active_by_domain": [
+        11,
+        18,
+        12,
+        23
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57519,
+      "active_by_domain": [
+        59,
+        2,
+        0,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A2_broad",
+      "recall_at_1": 0.2916666666666667,
+      "shadow_recall_at_1": 0.16666666666666666,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.759375,
+      "active": 64,
+      "shadows": 45,
+      "payload_bytes": 49040,
+      "active_by_domain": [
+        21,
+        11,
+        15,
+        17
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A3_context",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57519,
+      "active_by_domain": [
+        59,
+        2,
+        0,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.6666666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 110,
+      "shadows": 0,
+      "payload_bytes": 49452,
+      "active_by_domain": [
+        78,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.625,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57537,
+      "active_by_domain": [
+        59,
+        2,
+        0,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28720,
+      "active_by_domain": [
+        59,
+        2,
+        0,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.14583333333333334,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.23125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57459,
+      "active_by_domain": [
+        17,
+        12,
+        17,
+        18
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.020833333333333332,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57488,
+      "active_by_domain": [
+        58,
+        1,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A2_broad",
+      "recall_at_1": 0.2708333333333333,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.771875,
+      "active": 64,
+      "shadows": 43,
+      "payload_bytes": 48080,
+      "active_by_domain": [
+        15,
+        10,
+        23,
+        16
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A3_context",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.020833333333333332,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57488,
+      "active_by_domain": [
+        58,
+        1,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.7083333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 108,
+      "shadows": 0,
+      "payload_bytes": 48525,
+      "active_by_domain": [
+        76,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.0625,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57491,
+      "active_by_domain": [
+        58,
+        1,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.5208333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28707,
+      "active_by_domain": [
+        58,
+        1,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.3541666666666667,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57522,
+      "active_by_domain": [
+        16,
+        19,
+        13,
+        16
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.6458333333333334,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.8541666666666666,
+      "admission_rate": 0.259375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57535,
+      "active_by_domain": [
+        57,
+        2,
+        2,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A2_broad",
+      "recall_at_1": 0.2916666666666667,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.8333333333333334,
+      "admission_rate": 0.76875,
+      "active": 64,
+      "shadows": 38,
+      "payload_bytes": 45847,
+      "active_by_domain": [
+        9,
+        26,
+        16,
+        13
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A3_context",
+      "recall_at_1": 0.6458333333333334,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.8541666666666666,
+      "admission_rate": 0.259375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57535,
+      "active_by_domain": [
+        57,
+        2,
+        2,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.75,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 109,
+      "shadows": 0,
+      "payload_bytes": 48985,
+      "active_by_domain": [
+        77,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.6458333333333334,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.8541666666666666,
+      "admission_rate": 0.259375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57528,
+      "active_by_domain": [
+        57,
+        2,
+        2,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.259375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28763,
+      "active_by_domain": [
+        57,
+        2,
+        2,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.1875,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.284375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57584,
+      "active_by_domain": [
+        14,
+        16,
+        15,
+        19
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5208333333333334,
+      "shadow_recall_at_1": 0.041666666666666664,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.303125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57570,
+      "active_by_domain": [
+        53,
+        2,
+        3,
+        6
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A2_broad",
+      "recall_at_1": 0.1875,
+      "shadow_recall_at_1": 0.0625,
+      "cross_resonance_rate": 0.7708333333333334,
+      "admission_rate": 0.7375,
+      "active": 64,
+      "shadows": 35,
+      "payload_bytes": 44538,
+      "active_by_domain": [
+        18,
+        17,
+        10,
+        19
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A3_context",
+      "recall_at_1": 0.5208333333333334,
+      "shadow_recall_at_1": 0.041666666666666664,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.303125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57570,
+      "active_by_domain": [
+        53,
+        2,
+        3,
+        6
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.7916666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 120,
+      "shadows": 0,
+      "payload_bytes": 53972,
+      "active_by_domain": [
+        88,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.5208333333333334,
+      "shadow_recall_at_1": 0.041666666666666664,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.303125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57579,
+      "active_by_domain": [
+        53,
+        2,
+        3,
+        6
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.4791666666666667,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.303125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28763,
+      "active_by_domain": [
+        53,
+        2,
+        3,
+        6
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.4583333333333333,
+      "shadow_recall_at_1": 0.2916666666666667,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.23125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57564,
+      "active_by_domain": [
+        14,
+        18,
+        18,
+        14
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.75,
+      "shadow_recall_at_1": 0.08333333333333333,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57538,
+      "active_by_domain": [
+        54,
+        3,
+        4,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A2_broad",
+      "recall_at_1": 0.4583333333333333,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.734375,
+      "active": 64,
+      "shadows": 40,
+      "payload_bytes": 46785,
+      "active_by_domain": [
+        17,
+        17,
+        16,
+        14
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A3_context",
+      "recall_at_1": 0.75,
+      "shadow_recall_at_1": 0.08333333333333333,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57538,
+      "active_by_domain": [
+        54,
+        3,
+        4,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.7916666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 106,
+      "shadows": 0,
+      "payload_bytes": 47638,
+      "active_by_domain": [
+        74,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.7083333333333334,
+      "shadow_recall_at_1": 0.041666666666666664,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57567,
+      "active_by_domain": [
+        54,
+        3,
+        4,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.6666666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28746,
+      "active_by_domain": [
+        54,
+        3,
+        4,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.20833333333333334,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.228125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57549,
+      "active_by_domain": [
+        13,
+        16,
+        15,
+        20
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.6875,
+      "shadow_recall_at_1": 0.08333333333333333,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57529,
+      "active_by_domain": [
+        55,
+        3,
+        3,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A2_broad",
+      "recall_at_1": 0.4791666666666667,
+      "shadow_recall_at_1": 0.2708333333333333,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.709375,
+      "active": 64,
+      "shadows": 48,
+      "payload_bytes": 50350,
+      "active_by_domain": [
+        16,
+        19,
+        12,
+        17
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A3_context",
+      "recall_at_1": 0.6875,
+      "shadow_recall_at_1": 0.08333333333333333,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57529,
+      "active_by_domain": [
+        55,
+        3,
+        3,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.875,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 108,
+      "shadows": 0,
+      "payload_bytes": 48538,
+      "active_by_domain": [
+        76,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.6458333333333334,
+      "shadow_recall_at_1": 0.041666666666666664,
+      "cross_resonance_rate": 0.8541666666666666,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57539,
+      "active_by_domain": [
+        55,
+        3,
+        3,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "focused",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.6041666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28725,
+      "active_by_domain": [
+        55,
+        3,
+        3,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5208333333333334,
+      "shadow_recall_at_1": 0.2708333333333333,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.225,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57521,
+      "active_by_domain": [
+        13,
+        17,
+        17,
+        17
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.6666666666666666,
+      "shadow_recall_at_1": 0.5416666666666666,
+      "cross_resonance_rate": 0.8125,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57474,
+      "active_by_domain": [
+        54,
+        5,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A2_broad",
+      "recall_at_1": 0.6458333333333334,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.6875,
+      "active": 64,
+      "shadows": 48,
+      "payload_bytes": 50318,
+      "active_by_domain": [
+        18,
+        16,
+        15,
+        15
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A3_context",
+      "recall_at_1": 0.9375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.228125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57476,
+      "active_by_domain": [
+        26,
+        37,
+        0,
+        1
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.4166666666666667,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 114,
+      "shadows": 0,
+      "payload_bytes": 51241,
+      "active_by_domain": [
+        82,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.6666666666666666,
+      "shadow_recall_at_1": 0.5416666666666666,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57529,
+      "active_by_domain": [
+        54,
+        5,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.125,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28742,
+      "active_by_domain": [
+        54,
+        5,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.6458333333333334,
+      "shadow_recall_at_1": 0.3333333333333333,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.2625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57580,
+      "active_by_domain": [
+        21,
+        15,
+        15,
+        13
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5625,
+      "shadow_recall_at_1": 0.5625,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57561,
+      "active_by_domain": [
+        58,
+        2,
+        3,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A2_broad",
+      "recall_at_1": 0.6666666666666666,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.7291666666666666,
+      "admission_rate": 0.7125,
+      "active": 64,
+      "shadows": 41,
+      "payload_bytes": 47231,
+      "active_by_domain": [
+        20,
+        17,
+        14,
+        13
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A3_context",
+      "recall_at_1": 0.8333333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.23125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57545,
+      "active_by_domain": [
+        31,
+        30,
+        2,
+        1
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 121,
+      "shadows": 0,
+      "payload_bytes": 54437,
+      "active_by_domain": [
+        89,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.625,
+      "shadow_recall_at_1": 0.625,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57583,
+      "active_by_domain": [
+        58,
+        2,
+        3,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.0,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28788,
+      "active_by_domain": [
+        58,
+        2,
+        3,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.4583333333333333,
+      "shadow_recall_at_1": 0.25,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57572,
+      "active_by_domain": [
+        17,
+        16,
+        12,
+        19
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.4791666666666667,
+      "shadow_recall_at_1": 0.3541666666666667,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57553,
+      "active_by_domain": [
+        58,
+        3,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A2_broad",
+      "recall_at_1": 0.6666666666666666,
+      "shadow_recall_at_1": 0.2916666666666667,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.703125,
+      "active": 64,
+      "shadows": 48,
+      "payload_bytes": 50378,
+      "active_by_domain": [
+        24,
+        15,
+        15,
+        10
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A3_context",
+      "recall_at_1": 0.7708333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.215625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57517,
+      "active_by_domain": [
+        29,
+        34,
+        0,
+        1
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 118,
+      "shadows": 0,
+      "payload_bytes": 53052,
+      "active_by_domain": [
+        86,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.5,
+      "shadow_recall_at_1": 0.375,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57563,
+      "active_by_domain": [
+        58,
+        3,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.125,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28746,
+      "active_by_domain": [
+        58,
+        3,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.2708333333333333,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57505,
+      "active_by_domain": [
+        11,
+        17,
+        20,
+        16
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.5208333333333334,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57511,
+      "active_by_domain": [
+        59,
+        2,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A2_broad",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.041666666666666664,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.728125,
+      "active": 64,
+      "shadows": 40,
+      "payload_bytes": 46704,
+      "active_by_domain": [
+        11,
+        14,
+        21,
+        18
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A3_context",
+      "recall_at_1": 0.9791666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.2125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57498,
+      "active_by_domain": [
+        28,
+        35,
+        0,
+        1
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 112,
+      "shadows": 0,
+      "payload_bytes": 50356,
+      "active_by_domain": [
+        80,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.4791666666666667,
+      "shadow_recall_at_1": 0.4166666666666667,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57526,
+      "active_by_domain": [
+        59,
+        2,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.0625,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28770,
+      "active_by_domain": [
+        59,
+        2,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.6041666666666666,
+      "shadow_recall_at_1": 0.3541666666666667,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.2625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57536,
+      "active_by_domain": [
+        14,
+        16,
+        20,
+        14
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5,
+      "shadow_recall_at_1": 0.4583333333333333,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.25,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57552,
+      "active_by_domain": [
+        59,
+        1,
+        1,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A2_broad",
+      "recall_at_1": 0.4583333333333333,
+      "shadow_recall_at_1": 0.08333333333333333,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.75625,
+      "active": 64,
+      "shadows": 35,
+      "payload_bytes": 44473,
+      "active_by_domain": [
+        16,
+        12,
+        20,
+        16
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A3_context",
+      "recall_at_1": 0.9375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.75,
+      "admission_rate": 0.225,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57479,
+      "active_by_domain": [
+        27,
+        36,
+        1,
+        0
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.2708333333333333,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 113,
+      "shadows": 0,
+      "payload_bytes": 50827,
+      "active_by_domain": [
+        81,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.4583333333333333,
+      "shadow_recall_at_1": 0.4166666666666667,
+      "cross_resonance_rate": 0.8125,
+      "admission_rate": 0.25,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57545,
+      "active_by_domain": [
+        59,
+        1,
+        1,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.041666666666666664,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.25,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28762,
+      "active_by_domain": [
+        59,
+        1,
+        1,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.4166666666666667,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57543,
+      "active_by_domain": [
+        11,
+        18,
+        19,
+        16
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5,
+      "shadow_recall_at_1": 0.4791666666666667,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57517,
+      "active_by_domain": [
+        50,
+        2,
+        4,
+        8
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A2_broad",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.041666666666666664,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.740625,
+      "active": 64,
+      "shadows": 43,
+      "payload_bytes": 48092,
+      "active_by_domain": [
+        12,
+        20,
+        17,
+        15
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A3_context",
+      "recall_at_1": 1.0,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.30625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57501,
+      "active_by_domain": [
+        13,
+        47,
+        2,
+        2
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 104,
+      "shadows": 0,
+      "payload_bytes": 46728,
+      "active_by_domain": [
+        72,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.4791666666666667,
+      "shadow_recall_at_1": 0.4583333333333333,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57518,
+      "active_by_domain": [
+        50,
+        2,
+        4,
+        8
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.020833333333333332,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28733,
+      "active_by_domain": [
+        50,
+        2,
+        4,
+        8
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.7083333333333334,
+      "shadow_recall_at_1": 0.5625,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.196875,
+      "active": 63,
+      "shadows": 64,
+      "payload_bytes": 57047,
+      "active_by_domain": [
+        19,
+        15,
+        18,
+        11
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.75,
+      "shadow_recall_at_1": 0.75,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.265625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57524,
+      "active_by_domain": [
+        56,
+        1,
+        5,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A2_broad",
+      "recall_at_1": 0.6041666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.740625,
+      "active": 64,
+      "shadows": 38,
+      "payload_bytes": 45874,
+      "active_by_domain": [
+        22,
+        20,
+        13,
+        9
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A3_context",
+      "recall_at_1": 1.0,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.271875,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57543,
+      "active_by_domain": [
+        15,
+        45,
+        3,
+        1
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 122,
+      "shadows": 0,
+      "payload_bytes": 54826,
+      "active_by_domain": [
+        90,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.7708333333333334,
+      "shadow_recall_at_1": 0.7708333333333334,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.265625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57529,
+      "active_by_domain": [
+        56,
+        1,
+        5,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.0,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.265625,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28742,
+      "active_by_domain": [
+        56,
+        1,
+        5,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.7916666666666666,
+      "shadow_recall_at_1": 0.5625,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.25625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57492,
+      "active_by_domain": [
+        16,
+        15,
+        17,
+        16
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.5625,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57459,
+      "active_by_domain": [
+        59,
+        2,
+        2,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A2_broad",
+      "recall_at_1": 0.625,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.8541666666666666,
+      "admission_rate": 0.75,
+      "active": 64,
+      "shadows": 34,
+      "payload_bytes": 44008,
+      "active_by_domain": [
+        15,
+        19,
+        19,
+        11
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A3_context",
+      "recall_at_1": 0.9375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.7083333333333334,
+      "admission_rate": 0.228125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57427,
+      "active_by_domain": [
+        29,
+        33,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.2708333333333333,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 112,
+      "shadows": 0,
+      "payload_bytes": 50298,
+      "active_by_domain": [
+        80,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.5208333333333334,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57479,
+      "active_by_domain": [
+        59,
+        2,
+        2,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.020833333333333332,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28734,
+      "active_by_domain": [
+        59,
+        2,
+        2,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.2916666666666667,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.228125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57510,
+      "active_by_domain": [
+        15,
+        19,
+        16,
+        14
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5,
+      "shadow_recall_at_1": 0.4583333333333333,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.215625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57516,
+      "active_by_domain": [
+        56,
+        6,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A2_broad",
+      "recall_at_1": 0.4791666666666667,
+      "shadow_recall_at_1": 0.08333333333333333,
+      "cross_resonance_rate": 0.7916666666666666,
+      "admission_rate": 0.746875,
+      "active": 64,
+      "shadows": 31,
+      "payload_bytes": 42678,
+      "active_by_domain": [
+        19,
+        18,
+        16,
+        11
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A3_context",
+      "recall_at_1": 0.9375,
+      "shadow_recall_at_1": 0.16666666666666666,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.21875,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57506,
+      "active_by_domain": [
+        15,
+        48,
+        0,
+        1
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.2916666666666667,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 101,
+      "shadows": 0,
+      "payload_bytes": 45399,
+      "active_by_domain": [
+        69,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.5416666666666666,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.215625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57539,
+      "active_by_domain": [
+        56,
+        6,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.041666666666666664,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.215625,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28738,
+      "active_by_domain": [
+        56,
+        6,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.6666666666666666,
+      "shadow_recall_at_1": 0.375,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.228125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57553,
+      "active_by_domain": [
+        14,
+        20,
+        15,
+        15
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5625,
+      "shadow_recall_at_1": 0.5208333333333334,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57541,
+      "active_by_domain": [
+        62,
+        0,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A2_broad",
+      "recall_at_1": 0.6458333333333334,
+      "shadow_recall_at_1": 0.08333333333333333,
+      "cross_resonance_rate": 0.8125,
+      "admission_rate": 0.7,
+      "active": 64,
+      "shadows": 43,
+      "payload_bytes": 48143,
+      "active_by_domain": [
+        14,
+        19,
+        15,
+        16
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A3_context",
+      "recall_at_1": 0.875,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.240625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57562,
+      "active_by_domain": [
+        25,
+        38,
+        0,
+        1
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 104,
+      "shadows": 0,
+      "payload_bytes": 46749,
+      "active_by_domain": [
+        72,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.625,
+      "shadow_recall_at_1": 0.5833333333333334,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57558,
+      "active_by_domain": [
+        62,
+        0,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.041666666666666664,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28741,
+      "active_by_domain": [
+        62,
+        0,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.240625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57545,
+      "active_by_domain": [
+        11,
+        18,
+        12,
+        23
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5625,
+      "shadow_recall_at_1": 0.5208333333333334,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57519,
+      "active_by_domain": [
+        59,
+        2,
+        0,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A2_broad",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.7708333333333334,
+      "admission_rate": 0.759375,
+      "active": 64,
+      "shadows": 45,
+      "payload_bytes": 49040,
+      "active_by_domain": [
+        21,
+        11,
+        15,
+        17
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A3_context",
+      "recall_at_1": 0.9791666666666666,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.175,
+      "active": 56,
+      "shadows": 64,
+      "payload_bytes": 53931,
+      "active_by_domain": [
+        26,
+        30,
+        0,
+        0
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 110,
+      "shadows": 0,
+      "payload_bytes": 49452,
+      "active_by_domain": [
+        78,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.3958333333333333,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57537,
+      "active_by_domain": [
+        59,
+        2,
+        0,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.041666666666666664,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28720,
+      "active_by_domain": [
+        59,
+        2,
+        0,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5,
+      "shadow_recall_at_1": 0.3958333333333333,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.23125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57459,
+      "active_by_domain": [
+        17,
+        12,
+        17,
+        18
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5,
+      "shadow_recall_at_1": 0.4375,
+      "cross_resonance_rate": 0.75,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57488,
+      "active_by_domain": [
+        58,
+        1,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A2_broad",
+      "recall_at_1": 0.5208333333333334,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.771875,
+      "active": 64,
+      "shadows": 43,
+      "payload_bytes": 48080,
+      "active_by_domain": [
+        15,
+        10,
+        23,
+        16
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A3_context",
+      "recall_at_1": 0.8125,
+      "shadow_recall_at_1": 0.20833333333333334,
+      "cross_resonance_rate": 0.7083333333333334,
+      "admission_rate": 0.215625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57462,
+      "active_by_domain": [
+        29,
+        32,
+        2,
+        1
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 108,
+      "shadows": 0,
+      "payload_bytes": 48525,
+      "active_by_domain": [
+        76,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.375,
+      "cross_resonance_rate": 0.75,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57491,
+      "active_by_domain": [
+        58,
+        1,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.0625,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28707,
+      "active_by_domain": [
+        58,
+        1,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.6875,
+      "shadow_recall_at_1": 0.4583333333333333,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57522,
+      "active_by_domain": [
+        16,
+        19,
+        13,
+        16
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.3958333333333333,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.259375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57535,
+      "active_by_domain": [
+        57,
+        2,
+        2,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A2_broad",
+      "recall_at_1": 0.5208333333333334,
+      "shadow_recall_at_1": 0.08333333333333333,
+      "cross_resonance_rate": 0.7083333333333334,
+      "admission_rate": 0.76875,
+      "active": 64,
+      "shadows": 38,
+      "payload_bytes": 45847,
+      "active_by_domain": [
+        9,
+        26,
+        16,
+        13
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A3_context",
+      "recall_at_1": 0.8333333333333334,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.275,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57500,
+      "active_by_domain": [
+        16,
+        46,
+        2,
+        0
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.3333333333333333,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 109,
+      "shadows": 0,
+      "payload_bytes": 48985,
+      "active_by_domain": [
+        77,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.625,
+      "shadow_recall_at_1": 0.4375,
+      "cross_resonance_rate": 0.7916666666666666,
+      "admission_rate": 0.259375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57528,
+      "active_by_domain": [
+        57,
+        2,
+        2,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.1875,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.259375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28763,
+      "active_by_domain": [
+        57,
+        2,
+        2,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.7083333333333334,
+      "shadow_recall_at_1": 0.3958333333333333,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.284375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57584,
+      "active_by_domain": [
+        14,
+        16,
+        15,
+        19
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.7083333333333334,
+      "shadow_recall_at_1": 0.5833333333333334,
+      "cross_resonance_rate": 0.8125,
+      "admission_rate": 0.303125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57570,
+      "active_by_domain": [
+        53,
+        2,
+        3,
+        6
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A2_broad",
+      "recall_at_1": 0.6041666666666666,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.625,
+      "admission_rate": 0.7375,
+      "active": 64,
+      "shadows": 35,
+      "payload_bytes": 44538,
+      "active_by_domain": [
+        18,
+        17,
+        10,
+        19
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A3_context",
+      "recall_at_1": 0.9166666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.75,
+      "admission_rate": 0.284375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57558,
+      "active_by_domain": [
+        20,
+        42,
+        0,
+        2
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 120,
+      "shadows": 0,
+      "payload_bytes": 53972,
+      "active_by_domain": [
+        88,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.6875,
+      "shadow_recall_at_1": 0.5625,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.303125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57579,
+      "active_by_domain": [
+        53,
+        2,
+        3,
+        6
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.125,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.303125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28763,
+      "active_by_domain": [
+        53,
+        2,
+        3,
+        6
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.7708333333333334,
+      "shadow_recall_at_1": 0.4375,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.23125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57564,
+      "active_by_domain": [
+        14,
+        18,
+        18,
+        14
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.4791666666666667,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57538,
+      "active_by_domain": [
+        54,
+        3,
+        4,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A2_broad",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.734375,
+      "active": 64,
+      "shadows": 40,
+      "payload_bytes": 46785,
+      "active_by_domain": [
+        17,
+        17,
+        16,
+        14
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A3_context",
+      "recall_at_1": 0.8958333333333334,
+      "shadow_recall_at_1": 0.14583333333333334,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.2625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57552,
+      "active_by_domain": [
+        18,
+        44,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.4166666666666667,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 106,
+      "shadows": 0,
+      "payload_bytes": 47638,
+      "active_by_domain": [
+        74,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.7083333333333334,
+      "shadow_recall_at_1": 0.6041666666666666,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57567,
+      "active_by_domain": [
+        54,
+        3,
+        4,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.10416666666666667,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28746,
+      "active_by_domain": [
+        54,
+        3,
+        4,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.3541666666666667,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.228125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57549,
+      "active_by_domain": [
+        13,
+        16,
+        15,
+        20
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.4791666666666667,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57529,
+      "active_by_domain": [
+        55,
+        3,
+        3,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A2_broad",
+      "recall_at_1": 0.5625,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.8541666666666666,
+      "admission_rate": 0.709375,
+      "active": 64,
+      "shadows": 48,
+      "payload_bytes": 50350,
+      "active_by_domain": [
+        16,
+        19,
+        12,
+        17
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A3_context",
+      "recall_at_1": 0.8958333333333334,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.8125,
+      "admission_rate": 0.259375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57525,
+      "active_by_domain": [
+        19,
+        45,
+        0,
+        0
+      ],
+      "lambdas": [
+        0.9500000000000001,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.3333333333333333,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 108,
+      "shadows": 0,
+      "payload_bytes": 48538,
+      "active_by_domain": [
+        76,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.5208333333333334,
+      "shadow_recall_at_1": 0.4166666666666667,
+      "cross_resonance_rate": 0.8333333333333334,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57539,
+      "active_by_domain": [
+        55,
+        3,
+        3,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.10416666666666667,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28725,
+      "active_by_domain": [
+        55,
+        3,
+        3,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5,
+      "shadow_recall_at_1": 0.20833333333333334,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.225,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57521,
+      "active_by_domain": [
+        13,
+        17,
+        17,
+        17
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5625,
+      "shadow_recall_at_1": 0.25,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57474,
+      "active_by_domain": [
+        54,
+        5,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A2_broad",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.08333333333333333,
+      "cross_resonance_rate": 0.8125,
+      "admission_rate": 0.6875,
+      "active": 64,
+      "shadows": 48,
+      "payload_bytes": 50318,
+      "active_by_domain": [
+        18,
+        16,
+        15,
+        15
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A3_context",
+      "recall_at_1": 0.5625,
+      "shadow_recall_at_1": 0.25,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57474,
+      "active_by_domain": [
+        54,
+        5,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.5625,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 114,
+      "shadows": 0,
+      "payload_bytes": 51241,
+      "active_by_domain": [
+        82,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.5625,
+      "shadow_recall_at_1": 0.25,
+      "cross_resonance_rate": 0.8541666666666666,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57529,
+      "active_by_domain": [
+        54,
+        5,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 0,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28742,
+      "active_by_domain": [
+        54,
+        5,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.2625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57580,
+      "active_by_domain": [
+        21,
+        15,
+        15,
+        13
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.2916666666666667,
+      "shadow_recall_at_1": 0.20833333333333334,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57561,
+      "active_by_domain": [
+        58,
+        2,
+        3,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A2_broad",
+      "recall_at_1": 0.3333333333333333,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.8333333333333334,
+      "admission_rate": 0.7125,
+      "active": 64,
+      "shadows": 41,
+      "payload_bytes": 47231,
+      "active_by_domain": [
+        20,
+        17,
+        14,
+        13
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A3_context",
+      "recall_at_1": 0.2916666666666667,
+      "shadow_recall_at_1": 0.20833333333333334,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57561,
+      "active_by_domain": [
+        58,
+        2,
+        3,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.3333333333333333,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 121,
+      "shadows": 0,
+      "payload_bytes": 54437,
+      "active_by_domain": [
+        89,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57583,
+      "active_by_domain": [
+        58,
+        2,
+        3,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 1,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.08333333333333333,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28788,
+      "active_by_domain": [
+        58,
+        2,
+        3,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.20833333333333334,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57572,
+      "active_by_domain": [
+        17,
+        16,
+        12,
+        19
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57553,
+      "active_by_domain": [
+        58,
+        3,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A2_broad",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.703125,
+      "active": 64,
+      "shadows": 48,
+      "payload_bytes": 50378,
+      "active_by_domain": [
+        24,
+        15,
+        15,
+        10
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A3_context",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57553,
+      "active_by_domain": [
+        58,
+        3,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.4791666666666667,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 118,
+      "shadows": 0,
+      "payload_bytes": 53052,
+      "active_by_domain": [
+        86,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57563,
+      "active_by_domain": [
+        58,
+        3,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 2,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.1875,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.278125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28746,
+      "active_by_domain": [
+        58,
+        3,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5,
+      "shadow_recall_at_1": 0.2708333333333333,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57505,
+      "active_by_domain": [
+        11,
+        17,
+        20,
+        16
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.2708333333333333,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57511,
+      "active_by_domain": [
+        59,
+        2,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A2_broad",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.08333333333333333,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.728125,
+      "active": 64,
+      "shadows": 40,
+      "payload_bytes": 46704,
+      "active_by_domain": [
+        11,
+        14,
+        21,
+        18
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A3_context",
+      "recall_at_1": 0.5416666666666666,
+      "shadow_recall_at_1": 0.2708333333333333,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57511,
+      "active_by_domain": [
+        59,
+        2,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 112,
+      "shadows": 0,
+      "payload_bytes": 50356,
+      "active_by_domain": [
+        80,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.5208333333333334,
+      "shadow_recall_at_1": 0.25,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57526,
+      "active_by_domain": [
+        59,
+        2,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 3,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.2708333333333333,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28770,
+      "active_by_domain": [
+        59,
+        2,
+        1,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.3958333333333333,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.2625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57536,
+      "active_by_domain": [
+        14,
+        16,
+        20,
+        14
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.4583333333333333,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.8541666666666666,
+      "admission_rate": 0.25,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57552,
+      "active_by_domain": [
+        59,
+        1,
+        1,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A2_broad",
+      "recall_at_1": 0.3333333333333333,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.75625,
+      "active": 64,
+      "shadows": 35,
+      "payload_bytes": 44473,
+      "active_by_domain": [
+        16,
+        12,
+        20,
+        16
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A3_context",
+      "recall_at_1": 0.4583333333333333,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.8541666666666666,
+      "admission_rate": 0.25,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57552,
+      "active_by_domain": [
+        59,
+        1,
+        1,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.3958333333333333,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 113,
+      "shadows": 0,
+      "payload_bytes": 50827,
+      "active_by_domain": [
+        81,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.4791666666666667,
+      "shadow_recall_at_1": 0.25,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.25,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57545,
+      "active_by_domain": [
+        59,
+        1,
+        1,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 4,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.22916666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.25,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28762,
+      "active_by_domain": [
+        59,
+        1,
+        1,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57543,
+      "active_by_domain": [
+        11,
+        18,
+        19,
+        16
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.3541666666666667,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57517,
+      "active_by_domain": [
+        50,
+        2,
+        4,
+        8
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A2_broad",
+      "recall_at_1": 0.3541666666666667,
+      "shadow_recall_at_1": 0.25,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.740625,
+      "active": 64,
+      "shadows": 43,
+      "payload_bytes": 48092,
+      "active_by_domain": [
+        12,
+        20,
+        17,
+        15
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A3_context",
+      "recall_at_1": 0.3541666666666667,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57517,
+      "active_by_domain": [
+        50,
+        2,
+        4,
+        8
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.20833333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 104,
+      "shadows": 0,
+      "payload_bytes": 46728,
+      "active_by_domain": [
+        72,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.3333333333333333,
+      "shadow_recall_at_1": 0.20833333333333334,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57518,
+      "active_by_domain": [
+        50,
+        2,
+        4,
+        8
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 5,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.125,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28733,
+      "active_by_domain": [
+        50,
+        2,
+        4,
+        8
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.14583333333333334,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.196875,
+      "active": 63,
+      "shadows": 64,
+      "payload_bytes": 57047,
+      "active_by_domain": [
+        19,
+        15,
+        18,
+        11
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.265625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57524,
+      "active_by_domain": [
+        56,
+        1,
+        5,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A2_broad",
+      "recall_at_1": 0.2708333333333333,
+      "shadow_recall_at_1": 0.08333333333333333,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.740625,
+      "active": 64,
+      "shadows": 38,
+      "payload_bytes": 45874,
+      "active_by_domain": [
+        22,
+        20,
+        13,
+        9
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A3_context",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.265625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57524,
+      "active_by_domain": [
+        56,
+        1,
+        5,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.2708333333333333,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 122,
+      "shadows": 0,
+      "payload_bytes": 54826,
+      "active_by_domain": [
+        90,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.3333333333333333,
+      "shadow_recall_at_1": 0.14583333333333334,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.265625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57529,
+      "active_by_domain": [
+        56,
+        1,
+        5,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 6,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.1875,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.265625,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28742,
+      "active_by_domain": [
+        56,
+        1,
+        5,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.16666666666666666,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.25625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57492,
+      "active_by_domain": [
+        16,
+        15,
+        17,
+        16
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.16666666666666666,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57459,
+      "active_by_domain": [
+        59,
+        2,
+        2,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A2_broad",
+      "recall_at_1": 0.16666666666666666,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.75,
+      "active": 64,
+      "shadows": 34,
+      "payload_bytes": 44008,
+      "active_by_domain": [
+        15,
+        19,
+        19,
+        11
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A3_context",
+      "recall_at_1": 0.16666666666666666,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57459,
+      "active_by_domain": [
+        59,
+        2,
+        2,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.20833333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 112,
+      "shadows": 0,
+      "payload_bytes": 50298,
+      "active_by_domain": [
+        80,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.16666666666666666,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57479,
+      "active_by_domain": [
+        59,
+        2,
+        2,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.0,
+      "seed": 7,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.0625,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28734,
+      "active_by_domain": [
+        59,
+        2,
+        2,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.3958333333333333,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.228125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57510,
+      "active_by_domain": [
+        15,
+        19,
+        16,
+        14
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.25,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.215625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57516,
+      "active_by_domain": [
+        56,
+        6,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A2_broad",
+      "recall_at_1": 0.2708333333333333,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.8125,
+      "admission_rate": 0.746875,
+      "active": 64,
+      "shadows": 31,
+      "payload_bytes": 42678,
+      "active_by_domain": [
+        19,
+        18,
+        16,
+        11
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A3_context",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.25,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.215625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57516,
+      "active_by_domain": [
+        56,
+        6,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.3541666666666667,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 101,
+      "shadows": 0,
+      "payload_bytes": 45399,
+      "active_by_domain": [
+        69,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.4166666666666667,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.215625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57539,
+      "active_by_domain": [
+        56,
+        6,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 0,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.1875,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.215625,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28738,
+      "active_by_domain": [
+        56,
+        6,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5,
+      "shadow_recall_at_1": 0.20833333333333334,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.228125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57553,
+      "active_by_domain": [
+        14,
+        20,
+        15,
+        15
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.5208333333333334,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57541,
+      "active_by_domain": [
+        62,
+        0,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A2_broad",
+      "recall_at_1": 0.4166666666666667,
+      "shadow_recall_at_1": 0.125,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.7,
+      "active": 64,
+      "shadows": 43,
+      "payload_bytes": 48143,
+      "active_by_domain": [
+        14,
+        19,
+        15,
+        16
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A3_context",
+      "recall_at_1": 0.5208333333333334,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 1.0,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57541,
+      "active_by_domain": [
+        62,
+        0,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.5625,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 104,
+      "shadows": 0,
+      "payload_bytes": 46749,
+      "active_by_domain": [
+        72,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.5833333333333334,
+      "shadow_recall_at_1": 0.25,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57558,
+      "active_by_domain": [
+        62,
+        0,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 1,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.3333333333333333,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.209375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28741,
+      "active_by_domain": [
+        62,
+        0,
+        1,
+        1
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.3333333333333333,
+      "shadow_recall_at_1": 0.16666666666666666,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.240625,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57545,
+      "active_by_domain": [
+        11,
+        18,
+        12,
+        23
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.2916666666666667,
+      "shadow_recall_at_1": 0.14583333333333334,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57519,
+      "active_by_domain": [
+        59,
+        2,
+        0,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A2_broad",
+      "recall_at_1": 0.2916666666666667,
+      "shadow_recall_at_1": 0.16666666666666666,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.759375,
+      "active": 64,
+      "shadows": 45,
+      "payload_bytes": 49040,
+      "active_by_domain": [
+        21,
+        11,
+        15,
+        17
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A3_context",
+      "recall_at_1": 0.2916666666666667,
+      "shadow_recall_at_1": 0.14583333333333334,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57519,
+      "active_by_domain": [
+        59,
+        2,
+        0,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.25,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 110,
+      "shadows": 0,
+      "payload_bytes": 49452,
+      "active_by_domain": [
+        78,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.16666666666666666,
+      "cross_resonance_rate": 0.8541666666666666,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57537,
+      "active_by_domain": [
+        59,
+        2,
+        0,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 2,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.14583333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.221875,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28720,
+      "active_by_domain": [
+        59,
+        2,
+        0,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.2708333333333333,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.23125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57459,
+      "active_by_domain": [
+        17,
+        12,
+        17,
+        18
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57488,
+      "active_by_domain": [
+        58,
+        1,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A2_broad",
+      "recall_at_1": 0.3958333333333333,
+      "shadow_recall_at_1": 0.20833333333333334,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.771875,
+      "active": 64,
+      "shadows": 43,
+      "payload_bytes": 48080,
+      "active_by_domain": [
+        15,
+        10,
+        23,
+        16
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A3_context",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57488,
+      "active_by_domain": [
+        58,
+        1,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 108,
+      "shadows": 0,
+      "payload_bytes": 48525,
+      "active_by_domain": [
+        76,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.16666666666666666,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57491,
+      "active_by_domain": [
+        58,
+        1,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 3,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.20833333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.234375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28707,
+      "active_by_domain": [
+        58,
+        1,
+        3,
+        2
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.5208333333333334,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.253125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57522,
+      "active_by_domain": [
+        16,
+        19,
+        13,
+        16
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.3541666666666667,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.8125,
+      "admission_rate": 0.259375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57535,
+      "active_by_domain": [
+        57,
+        2,
+        2,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A2_broad",
+      "recall_at_1": 0.3541666666666667,
+      "shadow_recall_at_1": 0.0625,
+      "cross_resonance_rate": 0.7291666666666666,
+      "admission_rate": 0.76875,
+      "active": 64,
+      "shadows": 38,
+      "payload_bytes": 45847,
+      "active_by_domain": [
+        9,
+        26,
+        16,
+        13
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A3_context",
+      "recall_at_1": 0.3541666666666667,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.8125,
+      "admission_rate": 0.259375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57535,
+      "active_by_domain": [
+        57,
+        2,
+        2,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.3541666666666667,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 109,
+      "shadows": 0,
+      "payload_bytes": 48985,
+      "active_by_domain": [
+        77,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.4166666666666667,
+      "shadow_recall_at_1": 0.25,
+      "cross_resonance_rate": 0.7708333333333334,
+      "admission_rate": 0.259375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57528,
+      "active_by_domain": [
+        57,
+        2,
+        2,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 4,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.16666666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.259375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28763,
+      "active_by_domain": [
+        57,
+        2,
+        2,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.4583333333333333,
+      "shadow_recall_at_1": 0.20833333333333334,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.284375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57584,
+      "active_by_domain": [
+        14,
+        16,
+        15,
+        19
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.4166666666666667,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.303125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57570,
+      "active_by_domain": [
+        53,
+        2,
+        3,
+        6
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A2_broad",
+      "recall_at_1": 0.3125,
+      "shadow_recall_at_1": 0.14583333333333334,
+      "cross_resonance_rate": 0.6666666666666666,
+      "admission_rate": 0.7375,
+      "active": 64,
+      "shadows": 35,
+      "payload_bytes": 44538,
+      "active_by_domain": [
+        18,
+        17,
+        10,
+        19
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A3_context",
+      "recall_at_1": 0.4166666666666667,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.8958333333333334,
+      "admission_rate": 0.303125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57570,
+      "active_by_domain": [
+        53,
+        2,
+        3,
+        6
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 120,
+      "shadows": 0,
+      "payload_bytes": 53972,
+      "active_by_domain": [
+        88,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.3958333333333333,
+      "shadow_recall_at_1": 0.16666666666666666,
+      "cross_resonance_rate": 0.8125,
+      "admission_rate": 0.303125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57579,
+      "active_by_domain": [
+        53,
+        2,
+        3,
+        6
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 5,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.22916666666666666,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.303125,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28763,
+      "active_by_domain": [
+        53,
+        2,
+        3,
+        6
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.4583333333333333,
+      "shadow_recall_at_1": 0.22916666666666666,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.23125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57564,
+      "active_by_domain": [
+        14,
+        18,
+        18,
+        14
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.3958333333333333,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57538,
+      "active_by_domain": [
+        54,
+        3,
+        4,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A2_broad",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.16666666666666666,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.734375,
+      "active": 64,
+      "shadows": 40,
+      "payload_bytes": 46785,
+      "active_by_domain": [
+        17,
+        17,
+        16,
+        14
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A3_context",
+      "recall_at_1": 0.3958333333333333,
+      "shadow_recall_at_1": 0.10416666666666667,
+      "cross_resonance_rate": 0.9375,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57538,
+      "active_by_domain": [
+        54,
+        3,
+        4,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.375,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 106,
+      "shadows": 0,
+      "payload_bytes": 47638,
+      "active_by_domain": [
+        74,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.14583333333333334,
+      "cross_resonance_rate": 0.9791666666666666,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57567,
+      "active_by_domain": [
+        54,
+        3,
+        4,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 6,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.2916666666666667,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.24375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28746,
+      "active_by_domain": [
+        54,
+        3,
+        4,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "scalar_mean",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.3125,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.228125,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57549,
+      "active_by_domain": [
+        13,
+        16,
+        15,
+        20
+      ],
+      "lambdas": [
+        0.6875,
+        0.6875,
+        0.6875,
+        0.6875
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A1_fixed",
+      "recall_at_1": 0.4791666666666667,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57529,
+      "active_by_domain": [
+        55,
+        3,
+        3,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A2_broad",
+      "recall_at_1": 0.3541666666666667,
+      "shadow_recall_at_1": 0.16666666666666666,
+      "cross_resonance_rate": 0.875,
+      "admission_rate": 0.709375,
+      "active": 64,
+      "shadows": 48,
+      "payload_bytes": 50350,
+      "active_by_domain": [
+        16,
+        19,
+        12,
+        17
+      ],
+      "lambdas": [
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A3_context",
+      "recall_at_1": 0.4791666666666667,
+      "shadow_recall_at_1": 0.1875,
+      "cross_resonance_rate": 0.9583333333333334,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57529,
+      "active_by_domain": [
+        55,
+        3,
+        3,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "quota_fifo",
+      "recall_at_1": 0.5208333333333334,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 1.0,
+      "active": 108,
+      "shadows": 0,
+      "payload_bytes": 48538,
+      "active_by_domain": [
+        76,
+        13,
+        10,
+        9
+      ],
+      "lambdas": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A1_no_amplification",
+      "recall_at_1": 0.4375,
+      "shadow_recall_at_1": 0.14583333333333334,
+      "cross_resonance_rate": 0.9166666666666666,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 64,
+      "payload_bytes": 57539,
+      "active_by_domain": [
+        55,
+        3,
+        3,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "scenario": "diffuse",
+      "routing_error": 0.2,
+      "seed": 7,
+      "policy": "A1_no_shadows",
+      "recall_at_1": 0.2916666666666667,
+      "shadow_recall_at_1": 0.0,
+      "cross_resonance_rate": 0.0,
+      "admission_rate": 0.2375,
+      "active": 64,
+      "shadows": 0,
+      "payload_bytes": 28725,
+      "active_by_domain": [
+        55,
+        3,
+        3,
+        3
+      ],
+      "lambdas": [
+        0.05,
+        0.9,
+        0.9,
+        0.9
+      ]
+    }
+  ]
+}
