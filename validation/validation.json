@@ -1,0 +1,76 @@
+{
+  "release": "0.2.0",
+  "run_at_utc": "2026-11-11T21:06:27.820047+00:00",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "python": "3.12.14",
+  "runtime_dependencies": [],
+  "test_count": 44,
+  "tests_passed": true,
+  "full_benchmark_executed": false,
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_benchmark_repeatable_and_has_unfavorable_cases (test_val.AuditAndCLITests.test_benchmark_repeatable_and_has_unfavorable_cases) ... ok\ntest_cli_demo_query_plan_and_no_overwrite (test_val.AuditAndCLITests.test_cli_demo_query_plan_and_no_overwrite) ... ok\ntest_cli_ingest_roundtrip_and_bad_input_is_atomic (test_val.AuditAndCLITests.test_cli_ingest_roundtrip_and_bad_input_is_atomic) ... ok\ntest_counterexamples (test_val.AuditAndCLITests.test_counterexamples) ... ok\ntest_invalid_configs (test_val.AuditAndCLITests.test_invalid_configs) ... ok\ntest_adaptation_has_no_baseline_scale_artifact (test_val.ControllerTests.test_adaptation_has_no_baseline_scale_artifact) ... ok\ntest_cost_gradient_and_projection (test_val.ControllerTests.test_cost_gradient_and_projection) ... ok\ntest_coupled_rates_optional (test_val.ControllerTests.test_coupled_rates_optional) ... ok\ntest_domain_selectivity (test_val.ControllerTests.test_domain_selectivity) ... ok\ntest_embedding_dimension_locked (test_val.ControllerTests.test_embedding_dimension_locked) ... ok\ntest_equal_lambdas_recover_scalar (test_val.ControllerTests.test_equal_lambdas_recover_scalar) ... ok\ntest_fifo_and_pool_bounds (test_val.ControllerTests.test_fifo_and_pool_bounds) ... ok\ntest_gradient_maximizes_value (test_val.ControllerTests.test_gradient_maximizes_value) ... ok\ntest_impulse_and_exact_decay (test_val.ControllerTests.test_impulse_and_exact_decay) ... ok\ntest_invalid_gradient_preserves_state (test_val.ControllerTests.test_invalid_gradient_preserves_state) ... ok\ntest_invalid_observation_preserves_state (test_val.ControllerTests.test_invalid_observation_preserves_state) ... ok\ntest_joint_resonance_counts_a_joint_event (test_val.ControllerTests.test_joint_resonance_counts_a_joint_event) ... ok\ntest_literal_amplification (test_val.ControllerTests.test_literal_amplification) ... ok\ntest_memberships_and_graph_degree_limit (test_val.ControllerTests.test_memberships_and_graph_degree_limit) ... ok\ntest_new_configuration_defaults_to_consistent_raw_interval (test_val.ControllerTests.test_new_configuration_defaults_to_consistent_raw_interval) ... ok\ntest_no_unstated_endpoint_override (test_val.ControllerTests.test_no_unstated_endpoint_override) ... ok\ntest_paper_shadow_score_gap_is_visible (test_val.ControllerTests.test_paper_shadow_score_gap_is_visible) ... ok\ntest_query_is_read_only (test_val.ControllerTests.test_query_is_read_only) ... ok\ntest_raw_interval_has_no_gap_at_active_threshold (test_val.ControllerTests.test_raw_interval_has_no_gap_at_active_threshold) ... ok\ntest_retained_duplicate_id_rejected (test_val.ControllerTests.test_retained_duplicate_id_rejected) ... ok\ntest_shadow_resonance_requires_evidence (test_val.ControllerTests.test_shadow_resonance_requires_evidence) ... ok\ntest_strict_gate_at_threshold (test_val.ControllerTests.test_strict_gate_at_threshold) ... ok\ntest_urgency_uses_previous_baseline (test_val.ControllerTests.test_urgency_uses_previous_baseline) ... ok\ntest_zero_capacities_keep_no_episodes (test_val.ControllerTests.test_zero_capacities_keep_no_episodes) ... ok\ntest_degenerate_distribution (test_val.EntropyTests.test_degenerate_distribution) ... ok\ntest_equivalent_to_pair_sum (test_val.EntropyTests.test_equivalent_to_pair_sum) ... ok\ntest_invalid_probabilities (test_val.EntropyTests.test_invalid_probabilities) ... ok\ntest_large_vector_normalization (test_val.EntropyTests.test_large_vector_normalization) ... ok\ntest_uniform_four_is_not_one (test_val.EntropyTests.test_uniform_four_is_not_one) ... ok\ntest_zero_vector_rejected (test_val.EntropyTests.test_zero_vector_rejected) ... ok\ntest_budget_and_rank_zero_boundary (test_val.PersistenceAndPlanTests.test_budget_and_rank_zero_boundary) ... ok\ntest_corrupt_snapshots_rejected (test_val.PersistenceAndPlanTests.test_corrupt_snapshots_rejected) ... ok\ntest_missing_database_is_not_created_by_read (test_val.PersistenceAndPlanTests.test_missing_database_is_not_created_by_read) ... ok\ntest_plan_is_read_only_and_training_not_run (test_val.PersistenceAndPlanTests.test_plan_is_read_only_and_training_not_run) ... ok\ntest_rank_allocations_deterministic_and_bounded (test_val.PersistenceAndPlanTests.test_rank_allocations_deterministic_and_bounded) ... ok\ntest_saved_legacy_policy_remains_legacy_after_restore (test_val.PersistenceAndPlanTests.test_saved_legacy_policy_remains_legacy_after_restore) ... ok\ntest_snapshot_roundtrip_and_continuation (test_val.PersistenceAndPlanTests.test_snapshot_roundtrip_and_continuation) ... ok\ntest_sqlite_conflict_does_not_overwrite (test_val.PersistenceAndPlanTests.test_sqlite_conflict_does_not_overwrite) ... ok\ntest_temperature_floor (test_val.PersistenceAndPlanTests.test_temperature_floor) ... ok\n\n----------------------------------------------------------------------\nRan 44 tests in 0.489s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "val_memory",
+        "demo",
+        "--output",
+        "/tmp/tmpvfc_1yvd/demo"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"directory\": \"/tmp/tmpvfc_1yvd/demo\",\n  \"revision\": 1,\n  \"stats\": {\n    \"lambdas\": [\n      0.05,\n      0.08,\n      0.9,\n      0.9\n    ],\n    \"active\": 2,\n    \"shadows\": 2,\n    \"active_by_domain\": [\n      2,\n      0,\n      0,\n      0\n    ],\n    \"shadow_by_domain\": [\n      1,\n      0,\n      1,\n      0\n    ],\n    \"counters\": {\n      \"observed\": 4,\n      \"gate_accepted\": 2,\n      \"gate_rejected\": 2,\n      \"discarded\": 0,\n      \"active_evicted\": 0,\n      \"shadow_evicted\": 0\n    },\n    \"baseline_counts\": [\n      3,\n      0,\n      1,\n      0\n    ],\n    \"raw_baselines\": [\n      0.44615000000000005,\n      0.45,\n      0.45,\n      0.45\n    ],\n    \"density_by_domain\": [\n      1.0,\n      0.0,\n      0.0,\n      0.0\n    ],\n    \"cross_domain_edges\": 0,\n    \"mass_norms\": [\n      1.1815296953003838,\n      0.0,\n      0.0,\n      0.0\n    ],\n    \"retained_payload_bytes\": 882,\n    \"schema_version\": 1\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "val_memory",
+        "audit",
+        "--output",
+        "/tmp/tmpvfc_1yvd/counterexamples.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"strict_superiority\": {\n    \"lambdas\": [\n      0.05,\n      0.95\n    ],\n    \"scalar_lambda\": 0.5,\n    \"inputs\": \"two collinear peripheral-domain episodes, h=0.6\",\n    \"vector_active\": 0,\n    \"scalar_active\": 2,\n    \"vector_weighted_density\": 0.0,\n    \"scalar_weighted_density\": 2.0,\n    \"conclusion\": \"weighted density can be LOWER under vector inhibition\"\n  },\n  \"density_monotonicity\": {\n    \"before\": 1.0,\n    \"after\": 0.3333333333333333,\n    \"conclusion\": \"adding an isolated node reduces normalized edge density\"\n  },\n  \"stationary_urgency\": {\n    \"values\": [\n      0.5,\n      0.5\n    ],\n    \"conclusion\": \"at calibrated mean, urgency is 0.5 for both lambdas\"\n  },\n  \"uniform_score_shadow_ratio\": {\n    \"assumption\": \"independent raw h uniform on [0,1], unbounded retention\",\n    \"active_probability\": 0.86,\n    \"shadow_probability\": 0.07223719676549867,\n    \"shadow_to_active\": 0.08399674042499845,\n    \"conclusion\": \"shadow/active >10 does not follow from low lambda\"\n  },\n  \"bounded_proxy\": {\n    \"assumptions\": \"K domains, densities in [0,1], lambda regularizer epsilon>0\",\n    \"upper_bound\": \"sum rho_k/max(lambda_k,epsilon) <= K/epsilon\",\n    \"conclusion\": \"this regularized proxy cannot diverge indefinitely\"\n  }\n}\n",
+      "stderr": ""
+    }
+  ],
+  "files": {
+    "benchmark.json": {
+      "size_bytes": 189227,
+      "sha256": "fcd166d64d46def88a6bfd0188ea0ee12b516e9df8f73a5de4cf14baf5fde5f0"
+    },
+    "counterexamples.json": {
+      "size_bytes": 1230,
+      "sha256": "1f2098d039ba1dee498d12d0285a57023de23dc931a23a944635e2ac0fd5c5b7"
+    },
+    "tests.log": {
+      "size_bytes": 4808,
+      "sha256": "f65b8a325dbea534f616e7e330a0b7a29c2af1ed31ef4219937a0493b0c07a26"
+    }
+  },
+  "not_executed": [
+    "Python 3.11/3.13 execution",
+    "GitHub-hosted CI",
+    "real LLM or encoder",
+    "LoRA training",
+    "REM generation",
+    "LLI-CAMS database integration",
+    "human or biological experiment",
+    "learned intrinsic motivation"
+  ]
+}

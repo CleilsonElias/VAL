@@ -1,0 +1,39 @@
+{
+  "strict_superiority": {
+    "lambdas": [
+      0.05,
+      0.95
+    ],
+    "scalar_lambda": 0.5,
+    "inputs": "two collinear peripheral-domain episodes, h=0.6",
+    "vector_active": 0,
+    "scalar_active": 2,
+    "vector_weighted_density": 0.0,
+    "scalar_weighted_density": 2.0,
+    "conclusion": "weighted density can be LOWER under vector inhibition"
+  },
+  "density_monotonicity": {
+    "before": 1.0,
+    "after": 0.3333333333333333,
+    "conclusion": "adding an isolated node reduces normalized edge density"
+  },
+  "stationary_urgency": {
+    "values": [
+      0.5,
+      0.5
+    ],
+    "conclusion": "at calibrated mean, urgency is 0.5 for both lambdas"
+  },
+  "uniform_score_shadow_ratio": {
+    "assumption": "independent raw h uniform on [0,1], unbounded retention",
+    "active_probability": 0.86,
+    "shadow_probability": 0.07223719676549867,
+    "shadow_to_active": 0.08399674042499845,
+    "conclusion": "shadow/active >10 does not follow from low lambda"
+  },
+  "bounded_proxy": {
+    "assumptions": "K domains, densities in [0,1], lambda regularizer epsilon>0",
+    "upper_bound": "sum rho_k/max(lambda_k,epsilon) <= K/epsilon",
+    "conclusion": "this regularized proxy cannot diverge indefinitely"
+  }
+}

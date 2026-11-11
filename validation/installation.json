@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "wheel": "val_reference-0.1.0-py3-none-any.whl",
+  "wheel_sha256": "c4150ade749f3f88c677b5a741c2445f4a9d7e0219c0f5d8706e66b7e5d7d5df",
+  "build_command": "python -m pip wheel . --no-deps --no-build-isolation",
+  "install_command": "python -m pip install --no-index --no-deps val_reference-0.1.0-py3-none-any.whl",
+  "environment": "fresh Python 3.12 venv; installed wheel; working directory /tmp outside checkout; no PYTHONPATH",
+  "test_command": "python -m unittest discover -s <source>/tests -v",
+  "test_count": 41,
+  "exit_code": 0,
+  "observed_at_utc": "2026-11-11T11:46:20.485705+00:00"
+}

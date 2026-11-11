@@ -1,0 +1,39 @@
+{
+  "source_name": "VAL-ValuedAsymmetricLambda-.pdf",
+  "sha256": "2489a9798d08fd7048588b39e68ff83742b7572a205c7beced6f25e86206a1d6",
+  "size_bytes": 1399851,
+  "pages": 19,
+  "access": "full user-provided PDF; all pages text extracted; page 8 visually inspected",
+  "manuscript_date": "2026-05-10",
+  "analysis_date": "2026-11-11",
+  "author": "Cleilson Elias de Sousa",
+  "source_pdf_redistributed": false,
+  "original_experiment_code_supplied": false,
+  "upstream_context": {
+    "repository": "https://github.com/CleilsonElias/LLI-CAMS",
+    "path": "docs/FORMALISM.md",
+    "blob_sha": "e289a12cc857ec08263903cddcdcc7899c864ce6",
+    "accessed": "2026-11-11",
+    "use": "entropy convention and integration scope; source code not copied"
+  },
+  "literature": [
+    {
+      "title": "Carson et al. (2003)",
+      "doi": "10.1037/0022-3514.85.3.499",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14498785/",
+      "access": "bibliographic abstract; no full-paper claim"
+    },
+    {
+      "title": "Dwyer et al. (2024)",
+      "doi": "10.1177/27546330241237883",
+      "url": "https://journals.sagepub.com/doi/full/10.1177/27546330241237883",
+      "access": "publisher full text available; abstract and conceptual framing examined"
+    },
+    {
+      "title": "Snyder (2009)",
+      "doi": "10.1098/rstb.2008.0290",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2677578/",
+      "access": "full text available; hypothesis and mechanism framing examined"
+    }
+  ]
+}

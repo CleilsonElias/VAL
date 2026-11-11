@@ -1,0 +1,10 @@
+{
+  "version": "0.2.0",
+  "python": "3.12.14",
+  "wheel_install": "passed in fresh venv, no index",
+  "installed_module_path_verified": true,
+  "default_raw_interval_verified": true,
+  "installed_cli_demo": "passed",
+  "wheel_sha256": "22b0ca96f29699df700b645ada8e50e0bb78ae4f0ef557b151ce82af791a466f",
+  "scope": "package and CLI smoke check; full 44-test suite recorded separately"
+}
