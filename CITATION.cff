@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Please cite this research reference and distinguish it from the VAL manuscript."
+type: software
+title: "VAL Reference: Domain-Selective Inhibition and Bounded External Memory"
+version: 0.2.0
+date-released: 2026-11-11
+authors:
+  - family-names: "de Sousa"
+    given-names: "Cleilson Elias"
+license: MIT
+abstract: >-
+  Executable research reference for Valued Asymmetric Lambda, with domain-indexed
+  memory admission, bounded active and shadow pools, calibrated urgency, explicit
+  host-provided adaptation gradients, and reproducible synthetic retrieval tests.
+  It does not establish biological equivalence, creativity, or consciousness.
+repository-code: "https://github.com/CleilsonElias/VAL"
+url: "https://github.com/CleilsonElias/VAL"
