@@ -1,0 +1,25 @@
+focused / routing_error=0.0: seeds 4/16
+focused / routing_error=0.0: seeds 8/16
+focused / routing_error=0.0: seeds 12/16
+focused / routing_error=0.0: seeds 16/16
+focused / routing_error=0.2: seeds 4/16
+focused / routing_error=0.2: seeds 8/16
+focused / routing_error=0.2: seeds 12/16
+focused / routing_error=0.2: seeds 16/16
+shifted / routing_error=0.0: seeds 4/16
+shifted / routing_error=0.0: seeds 8/16
+shifted / routing_error=0.0: seeds 12/16
+shifted / routing_error=0.0: seeds 16/16
+shifted / routing_error=0.2: seeds 4/16
+shifted / routing_error=0.2: seeds 8/16
+shifted / routing_error=0.2: seeds 12/16
+shifted / routing_error=0.2: seeds 16/16
+diffuse / routing_error=0.0: seeds 4/16
+diffuse / routing_error=0.0: seeds 8/16
+diffuse / routing_error=0.0: seeds 12/16
+diffuse / routing_error=0.0: seeds 16/16
+diffuse / routing_error=0.2: seeds 4/16
+diffuse / routing_error=0.2: seeds 8/16
+diffuse / routing_error=0.2: seeds 12/16
+diffuse / routing_error=0.2: seeds 16/16
+{"runs": 864, "seconds": 45.48201455999879, "output": "results/revision_study_matched.json"}

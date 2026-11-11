@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "manuscript_pages": 13,
+  "numbered_display_equations": 14,
+  "native_word_math_objects": 77,
+  "all_pages_visually_reviewed": true,
+  "software_core_version": "0.1.0",
+  "core_unchanged": true,
+  "revision_tests_passed": 6,
+  "study_runs": 864,
+  "study_seeds": 16,
+  "queries_per_run": 96,
+  "observations_per_run": 320,
+  "routing_levels_share_underlying_data": true,
+  "reference_core_hashes": {
+    "__init__.py": "15470fab086c6fab4fb58d31b7a930a59819c4351cf296b6147c3566e4edcb88",
+    "__main__.py": "76fa916e93e0ae1a6c1bb51dcc0bcf289c014e9f760a47165f8a84401ccf41d7",
+    "core.py": "a4c6d38bbb1cf663de4a15c55eb7086bfecd146f7046562df7c64216f0752626",
+    "benchmark.py": "b1d5a1ed6a00996c9a0bae4a98bebc27c692a3bd8a6f6f49c32dc5f96c00a732",
+    "cli.py": "e519ea568496d6f3361fd734da1edfa3b5edd737d3e0675223fa5a9a403e9adc",
+    "planning.py": "28512bda59bb101d134534da46fad4c6571ef44cbfdad46f8657c3f883bd2008",
+    "maths.py": "5b33c60b42227fc292d898d79c6503acde11fc369b37e444933ba7d158355e42",
+    "storage.py": "f3cd819d1f7f83a937a13c94927b11314892789d474638cd6fe8a839eb8f2f99"
+  },
+  "not_executed": [
+    "real corpus evaluation",
+    "neural encoder",
+    "LLM generation",
+    "LoRA training",
+    "autonomous motivation learning",
+    "human or neural experiment",
+    "GitHub publication"
+  ],
+  "documents": {
+    "VAL_Revised_Manuscript_2026-11-11.docx": {
+      "sha256": "2fe34d4b87130d1a692cf0671f2d1c909dc02d7cd9cb9671ffc8554980a5eead",
+      "size_bytes": 92649
+    },
+    "VAL_Revised_Manuscript_2026-11-11.pdf": {
+      "sha256": "c53612b6fc8d70e93693c5215cf027650b1000e9b5d5ab6cd7e398b52ec7e519",
+      "size_bytes": 448237
+    }
+  }
+}
